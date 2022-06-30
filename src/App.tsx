@@ -1,4 +1,4 @@
-import {SetStateAction, useEffect, useState} from "react";
+import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {getTokenSelector, setTokenUser} from "./app/slices/appSlice";
 
@@ -6,10 +6,11 @@ function App() {
 
     const dispatch = useDispatch();
 
-    const CLIENT_ID = "1619fd283c634c018f2b78d2915707d6"
-    const REDIRECT_URI = "http://localhost:3000"
-    const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
-    const RESPONSE_TYPE = "token"
+    const CLIENT_ID = "1619fd283c634c018f2b78d2915707d6";
+    const REDIRECT_URI = "http://localhost:3000";
+    const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
+    const RESPONSE_TYPE = "token";
+    const url = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`;
 
     const tokenUser = useSelector(getTokenSelector);
 
@@ -17,35 +18,35 @@ function App() {
 
     useEffect(() => {
         const hash = window.location.hash;
-        let token: string | undefined | null = window.localStorage.getItem("token");
+        let token = window.localStorage.getItem("token");
+
+        console.log(hash, token);
 
         if(hash && !token) {
-
-            token  = hash.substring(1).split("&").find( element => element.startsWith("access_token"));
-
-            window.location.hash = "";
-            if (typeof token === "string") {
-                window.localStorage.setItem("token", token);
-            }
-
+            const tokenOnHash = hash.substring(
+                hash.indexOf("=") + 1,
+                hash.indexOf("&token_type")
+            );
+            dispatch(setTokenUser(tokenOnHash));
+            //TODO: CHANGE THIS WITH REACT ROUTER.
+            window.location.replace("/");
         }
-
-        dispatch(setTokenUser("asdklfjasdfk"));
 
     }, [])
 
-    const logout = () => {
-        setTokenUser("");
+    const onLogout = () => {
+        dispatch(setTokenUser(""));
         window.localStorage.removeItem("token");
     }
 
     return (
         <div className="App">
             <header className="App-header">
+                {tokenUser}
                 {!tokenUser ?
-                    <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login
+                    <a href={url}>Login
                         to Spotify</a>
-                    : <button onClick={logout}>Logout</button>}
+                    : <button onClick={onLogout}>Logout</button>}
             </header>
         </div>
     );
