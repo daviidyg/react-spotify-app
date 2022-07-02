@@ -1,11 +1,12 @@
 import {useEffect} from "react";
+import {url} from "./app/app-constants";
 
 function App() {
 
-    useEffect(() => {
+    const  token = window.localStorage.getItem("token");
 
+    useEffect(() => {
         const hash = window.location.hash;
-        let token = window.localStorage.getItem("token");
 
         if (hash && !token) {
             const tokenOnHash = hash.substring(
@@ -26,8 +27,8 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                {tokenUser}
-                {!tokenUser ?
+                {token}
+                {!token ?
                     <a href={url}>Login
                         to Spotify</a>
                     : <button onClick={onLogout}>Logout</button>}
