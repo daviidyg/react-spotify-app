@@ -1,5 +1,6 @@
 import {useEffect} from "react";
 import {AppRoutes, token} from "../../app-constants";
+import NavbarComponent from "../../components/navbar/navbar";
 
 const HomeComponent = () => {
 
@@ -23,7 +24,7 @@ const HomeComponent = () => {
     }, [])
 
     return (
-        <h1>Home Page</h1>
+        <NavbarComponent />
     )
 }
 
