@@ -9,10 +9,6 @@ export interface FetchProfileInfoFailurePayload {
     error: string;
 }
 
-export interface FetchProfileInfoFailurePayload {
-    type: typeof ProfileInfoTypes.FETCH_PROFILE_INFO_FAILURE;
-}
-
 export type FetchProfileRequest = {
     type: typeof ProfileInfoTypes.FETCH_PROFILE_INFO_REQUEST
 }

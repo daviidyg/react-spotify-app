@@ -13,7 +13,7 @@ const scopes = [
 ]
 export const url = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scopes${scopes.join("%20")}&show_dialog=true&response_type=token`;
 
-//GET THE TOKEN SAVED IN LOCAL STORAGE
+//Token saved in local storage
 export const token = window.localStorage.getItem("token");
 
 //URLS
