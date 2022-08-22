@@ -1,33 +1,34 @@
+interface ExplicitContent {
+    filter_enabled: boolean,
+    filter_locked: boolean
+}
+
+interface ExternalUrls {
+    spotify: string
+}
+
+interface Followers {
+    href: string,
+    total: number
+}
+
+interface Images {
+    url: string,
+    height: number,
+    width: number
+}
+
 export interface ProfileInfo {
     country: string,
     display_name: string,
     email: string,
-
-}
-
-{
-
-    explicit_content": {
-    filter_enabled": true,
-        "filter_locked": true
-},
-    "external_urls": {
-    "spotify": "string"
-},
-    "followers": {
-    "href": "string",
-        "total": 0
-},
-    "href": "string",
-    "id": "string",
-    "images": [
-    {
-        "url": "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228\n",
-        "height": 300,
-        "width": 300
-    }
-],
-    "product": "string",
-    "type": "string",
-    "uri": "string"
+    explicit_content: ExplicitContent,
+    external_urls: ExternalUrls,
+    followers: Followers,
+    href: string,
+    id: string,
+    images: Images[],
+    product: string,
+    type: string,
+    uri: string
 }

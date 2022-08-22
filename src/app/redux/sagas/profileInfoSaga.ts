@@ -2,8 +2,9 @@ import axios from "axios";
 import {all, put, takeEvery} from "redux-saga/effects";
 import {ProfileInfoTypes} from "../actionTypes/profileInfoTypes";
 import {fetchProfileInfoFailure, fetchProfileInfoSuccess} from "../actions/profileInfoActions/profileInfoActions";
+import {ProfileInfo} from "../../models/ProfileInfo";
 
-const getInfoAccount = () => axios.get<any>("https://api.spotify.com/v1/me");
+const getInfoAccount = () => axios.get<ProfileInfo>("https://api.spotify.com/v1/me");
 
 function* fetchProfileInfo() {
     try {

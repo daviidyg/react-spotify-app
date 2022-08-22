@@ -1,7 +1,8 @@
 import {ProfileInfoTypes} from "../actionTypes/profileInfoTypes";
+import {ProfileInfo} from "../../models/ProfileInfo";
 
 export interface FetchProfileInfoSuccessPayload {
-    info: any;
+    info: ProfileInfo;
 }
 
 export interface FetchProfileInfoFailurePayload {
