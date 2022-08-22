@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import profileInfoReducer from "./profileInfoReducer";
 
 const rootReducer = combineReducers({
-    info: profileInfoReducer
+    profileInfo: profileInfoReducer
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

@@ -1,5 +1,6 @@
 import {profileInfoActions} from "../types/profileInfoTypes";
 import {ProfileInfoTypes} from "../actionTypes/profileInfoTypes";
+import {RootState} from "./rootReducer";
 
 const initialState = {
     pending: false,
@@ -34,3 +35,5 @@ export default (state = initialState, action: profileInfoActions) => {
             };
     }
 };
+
+export const infoSelector = (state: RootState) => state.profileInfo['info'];
