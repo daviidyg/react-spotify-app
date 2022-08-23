@@ -3,7 +3,7 @@ import {all, call, put, takeEvery} from "redux-saga/effects";
 import {ProfileInfoTypes} from "../actionTypes/profileInfoTypes";
 import {fetchProfileInfoFailure, fetchProfileInfoSuccess} from "../actions/profileInfoActions/profileInfoActions";
 import {ProfileInfo} from "../../models/ProfileInfo";
-import {token} from "../../app-constants";
+import {AppRoutes, token} from "../../app-constants";
 
 const getInfoAccount = () => axios.get<ProfileInfo>("https://api.spotify.com/v1/me",
     {
@@ -23,11 +23,16 @@ function* fetchProfileInfo() {
             })
         );
     } catch (e) {
-        yield put(
-            fetchProfileInfoFailure({
-                error: e.message
-            })
-        )
+        if(e.code === "ERR_BAD_REQUEST") {
+            localStorage.removeItem("token");
+            window.location.replace(AppRoutes.LOGIN);
+        } else {
+            yield put(
+                fetchProfileInfoFailure({
+                    error: e.message
+                })
+            )
+        }
     }
 }
 
