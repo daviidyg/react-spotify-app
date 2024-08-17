@@ -10,7 +10,7 @@ export interface FetchProfileInfoFailurePayload {
 }
 
 export type FetchProfileRequest = {
-    type: typeof ProfileInfoTypes.FETCH_PROFILE_INFO_REQUEST
+    type: typeof ProfileInfoTypes.FETCH_PROFILE_INFO_REQUEST;
 }
 
 export type FetchProfileInfoSuccess = {

@@ -1,3 +1,4 @@
+import React from 'react';
 import RoutesComponent from "./app/routes/routes.component";
 
 function App() {
