@@ -32,7 +32,7 @@ const HomeComponent = () => {
     }, []);
 
     if (!profileInfoUser) {
-        return null
+        return null;
     }
 
     return (
@@ -40,7 +40,7 @@ const HomeComponent = () => {
             <NavbarComponent infoUser={profileInfoUser}/>
             <h1>Welcome {profileInfoUser.display_name}</h1>
         </>
-    )
-}
+    );
+};
 
-export default HomeComponent
+export default HomeComponent;

@@ -31,7 +31,7 @@ function* fetchProfileInfo() {
                 fetchProfileInfoFailure({
                     error: e.message
                 })
-            )
+            );
         }
     }
 }

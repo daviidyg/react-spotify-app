@@ -36,4 +36,4 @@ export default (state = initialState, action: profileInfoActions) => {
     }
 };
 
-export const infoSelector = (state: RootState) => state.profileInfo['info'];
+export const infoSelector = (state: RootState) => state.profileInfo["info"];

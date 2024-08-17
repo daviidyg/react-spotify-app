@@ -6,11 +6,11 @@ const RoutesComponent = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path={'/'} element={<HomeComponent/>}/>
-                <Route path={'/login'} element={<LoginComponent/>}/>
+                <Route path={"/"} element={<HomeComponent/>}/>
+                <Route path={"/login"} element={<LoginComponent/>}/>
             </Routes>
         </BrowserRouter>
-    )
-}
+    );
+};
 
 export default RoutesComponent;

@@ -1,4 +1,4 @@
-import spotifyIcon from "../../../assets/Spotify_Logo_RGB_White.png"
+import spotifyIcon from "../../../assets/Spotify_Logo_RGB_White.png";
 import {url} from "../../app-constants";
 
 const LoginComponent = () => {
@@ -27,7 +27,7 @@ const LoginComponent = () => {
                 className="grid col-span-4 h-screen bg-gradient-to-l from-green-700 via-emerald-900 to-black">
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default LoginComponent
+export default LoginComponent;
