@@ -1,10 +1,12 @@
 import React from "react";
 
 
-const sideMenuComponent = () => {
-    return (
-       <h1>sideMenuComponent</h1>
-    )
-}
+const SideMenuComponent = () => {
+    console.warn("delete me");
 
-export default sideMenuComponent
+    return (
+        <h1>SideMenuComponent</h1>
+    );
+};
+
+export default SideMenuComponent;

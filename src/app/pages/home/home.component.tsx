@@ -1,10 +1,12 @@
-import {useEffect} from "react";
-import {AppRoutes, token} from "../../app-constants";
+import { useEffect } from "react";
+import { AppRoutes, token } from "../../app-constants";
+// import NavbarComponent from "../../components/navbar/navbar";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProfileInfoRequest } from "../../redux/actions/profileInfoActions/profileInfoActions";
+import { infoSelector } from "../../redux/reducers/profileInfoReducer";
+import { ProfileInfo } from "../../models/ProfileInfo";
 import NavbarComponent from "../../components/navbar/navbar";
-import {useDispatch, useSelector} from "react-redux";
-import {fetchProfileInfoRequest} from "../../redux/actions/profileInfoActions/profileInfoActions";
-import {infoSelector} from "../../redux/reducers/profileInfoReducer";
-import {ProfileInfo} from "../../models/ProfileInfo";
+import SearchBar from "../../components/searchbar/searchbar";
 
 const HomeComponent = () => {
     const dispatch = useDispatch();
@@ -37,8 +39,15 @@ const HomeComponent = () => {
 
     return (
         <>
-            <NavbarComponent infoUser={profileInfoUser}/>
-            <h1>Welcome {profileInfoUser.display_name}</h1>
+            <NavbarComponent infoUser={profileInfoUser} />
+            <div className="parent h-screen dark:bg-gray-800 w-screen">
+                <div className="p-4 sm:ml-64">
+                    <div className="p-4 dark:border-gray-700">
+                        <h1 className="p-5 text-m font-semibold text-gray-900 md:text-5xl dark:text-white">Welcome, {profileInfoUser?.display_name}</h1>
+                    </div>
+                    <SearchBar />
+                </div>
+            </div>
         </>
     );
 };
